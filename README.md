@@ -1,8 +1,13 @@
-Calculadora simples (adição, subtração, multiplicação, divisão).
+Calculadora simples (adição, subtração, multiplicação, divisão). 
+
 Conversor de temperatura (Celsius para Fahrenheit e vice-versa).
+
 Gerador de senhas aleatórias.
+
 Contador de palavras em um texto.
+
 Gerador de números aleatórios.
+
 Verificador de número primo.
 Calculadora de IMC (Índice de Massa Corporal).
 Calculadora de idade em dias.
