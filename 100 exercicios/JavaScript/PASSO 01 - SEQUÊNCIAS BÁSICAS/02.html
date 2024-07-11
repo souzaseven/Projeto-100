@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas-vindas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 10%;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #36A7DE;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2d91c8;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .texto {
+            display: none;
+            margin-top: 20px;
+            font-size: 1em;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        #toggleButton {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton" onclick="toggleText()">Ver Exercício</button>
+    <div class="texto">
+        <p>2) Faça um programa que leia o nome de uma pessoa e mostre uma mensagem de boas vindas para ela:</p>
+        <p>Ex:</p>
+        <p>Qual é o seu nome? João da Silva</p>
+        <p>Olá João da Silva, é um prazer te conhecer!</p>
+    </div>
+
+    <div class="container">
+        <h1>Boas-vindas</h1>
+        <label for="name">Qual é o seu nome?</label><br>
+        <input type="text" id="name" placeholder="Digite seu nome"><br>
+        <button onclick="showWelcomeMessage()">Enviar</button>
+        <div class="message" id="welcomeMessage"></div>
+    </div>
+
+    <script>
+        function toggleText() {
+            const texto = document.querySelector('.texto');
+            const button = document.getElementById('toggleButton');
+            
+            if (texto.style.display === 'block') {
+                texto.style.display = 'none';
+                button.textContent = 'Ver Exercício';
+            } else {
+                texto.style.display = 'block';
+                button.textContent = 'Esconder Exercício';
+            }
+        }
+
+        function showWelcomeMessage() {
+            const name = document.getElementById('name').value;
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            
+            if (name) {
+                welcomeMessage.textContent = `Olá ${name}, é um prazer te conhecer!`;
+            } else {
+                welcomeMessage.textContent = 'Por favor, digite seu nome.';
+            }
+        }
+    </script>
+</body>
+</html>
