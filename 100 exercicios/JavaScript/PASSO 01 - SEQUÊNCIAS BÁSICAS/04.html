@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somatório de Números</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Somatório de Números</h1>
+        <label for="num1">Digite um valor:</label><br>
+        <input type="number" id="num1" placeholder="Digite o primeiro número"><br>
+        <label for="num2">Digite outro valor:</label><br>
+        <input type="number" id="num2" placeholder="Digite o segundo número"><br>
+        <button onclick="calculateSum()">Calcular</button>
+        <div class="message" id="sumMessage"></div>
+    </div>
+
+    <script>
+        function calculateSum() {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                const sum = num1 + num2;
+                document.getElementById('sumMessage').textContent = `A soma entre ${num1} e ${num2} é igual a ${sum}.`;
+            } else {
+                document.getElementById('sumMessage').textContent = 'Por favor, insira dois números válidos.';
+            }
+        }
+    </script>
+</body>
+</html>
