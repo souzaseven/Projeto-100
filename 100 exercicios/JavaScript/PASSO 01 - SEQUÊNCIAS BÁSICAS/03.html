@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Funcionário</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Informações do Funcionário</h1>
+        <label for="name">Nome do Funcionário:</label><br>
+        <input type="text" id="name" placeholder="Digite o nome do funcionário"><br>
+        <label for="salary">Salário:</label><br>
+        <input type="number" id="salary" placeholder="Digite o salário do funcionário" step="0.01"><br>
+        <button onclick="showEmployeeInfo()">Enviar</button>
+        <div class="message" id="employeeMessage"></div>
+    </div>
+
+    <script>
+        function showEmployeeInfo() {
+            const name = document.getElementById('name').value;
+            const salary = parseFloat(document.getElementById('salary').value).toFixed(2);
+
+            if (name && !isNaN(salary)) {
+                const message = `O funcionário ${name} teve um salário de R$${salary} em Junho.`;
+                document.getElementById('employeeMessage').textContent = message;
+            } else {
+                document.getElementById('employeeMessage').textContent = 'Por favor, preencha todos os campos corretamente.';
+            }
+        }
+    </script>
+</body>
+</html>
