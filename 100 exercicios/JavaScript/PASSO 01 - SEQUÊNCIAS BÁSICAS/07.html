@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobro e Terça Parte</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dobro e Terça Parte</h1>
+        <label for="numero">Digite um número:</label><br>
+        <input type="number" id="numero" placeholder="Digite um número" step="0.01"><br>
+        <button onclick="calcularDobroETercaParte()">Calcular</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function calcularDobroETercaParte() {
+            const numero = parseFloat(document.getElementById('numero').value);
+
+            if (!isNaN(numero)) {
+                const dobro = numero * 2;
+                const tercaParte = numero / 3;
+                document.getElementById('resultadoMessage').textContent = `O dobro de ${numero} é ${dobro.toFixed(2)}. A terça parte de ${numero} é ${tercaParte.toFixed(5)}.`;
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, insira um número válido.';
+            }
+        }
+    </script>
+</body>
+</html>
