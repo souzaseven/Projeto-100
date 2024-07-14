@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversor de Temperatura</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    .result {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h2>Conversor de Temperatura</h2>
+    <form id="converterForm">
+        <label for="tempCelsius">Temperatura em Celsius:</label>
+        <input type="number" id="tempCelsius" name="tempCelsius">
+        <br><br>
+        <label for="tempFahrenheit">Temperatura em Fahrenheit:</label>
+        <input type="number" id="tempFahrenheit" name="tempFahrenheit">
+        <br><br>
+        <button type="button" onclick="converterParaFahrenheit()">Converter para Fahrenheit</button>
+        <button type="button" onclick="converterParaCelsius()">Converter para Celsius</button>
+    </form>
+
+    <div id="resultado" class="result"></div>
+
+    <script>
+        // Função que converte Celsius para Fahrenheit
+        function converterParaFahrenheit() {
+            let tempCelsius = parseFloat(document.getElementById('tempCelsius').value);
+            if (isNaN(tempCelsius)) {
+                document.getElementById('resultado').textContent = "Por favor, insira uma temperatura válida em Celsius.";
+                return;
+            }
+            let tempFahrenheit = (tempCelsius * 9/5) + 32;
+            document.getElementById('tempFahrenheit').value = tempFahrenheit.toFixed(2);
+            document.getElementById('resultado').textContent = `${tempCelsius}°C é igual a ${tempFahrenheit.toFixed(2)}°F`;
+        }
+
+        // Função que converte Fahrenheit para Celsius
+        function converterParaCelsius() {
+            let tempFahrenheit = parseFloat(document.getElementById('tempFahrenheit').value);
+            if (isNaN(tempFahrenheit)) {
+                document.getElementById('resultado').textContent = "Por favor, insira uma temperatura válida em Fahrenheit.";
+                return;
+            }
+            let tempCelsius = (tempFahrenheit - 32) * 5/9;
+            document.getElementById('tempCelsius').value = tempCelsius.toFixed(2);
+            document.getElementById('resultado').textContent = `${tempFahrenheit}°F é igual a ${tempCelsius.toFixed(2)}°C`;
+        }
+    </script>
+</body>
+</html>
