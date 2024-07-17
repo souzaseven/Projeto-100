@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tinta</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Tinta</h1>
+        <label for="largura">Digite a largura da parede (em metros):</label><br>
+        <input type="number" id="largura" placeholder="Digite a largura"><br>
+        <label for="altura">Digite a altura da parede (em metros):</label><br>
+        <input type="number" id="altura" placeholder="Digite a altura"><br>
+        <button onclick="calcularTinta()">Calcular</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function calcularTinta() {
+            const largura = parseFloat(document.getElementById('largura').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+            if (!isNaN(largura) && !isNaN(altura)) {
+                const area = largura * altura;
+                const tintaNecessaria = area / 2;
+                document.getElementById('resultadoMessage').textContent = 
+                    `A área a ser pintada é de ${area.toFixed(2)} metros quadrados. 
+                    Você precisará de ${tintaNecessaria.toFixed(2)} litros de tinta.`;
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, insira valores válidos para a largura e altura.';
+            }
+        }
+    </script>
+</body>
+</html>
