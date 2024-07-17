@@ -1,8 +1,8 @@
-Calculadora simples (adição, subtração, multiplicação, divisão).
+Calculadora simples (adição, subtração, multiplicação, divisão).✅
 
-Conversor de temperatura (Celsius para Fahrenheit e vice-versa).
+Conversor de temperatura (Celsius para Fahrenheit e vice-versa).✅
 
-Gerador de senhas aleatórias.
+Gerador de senhas aleatórias.✅
 
 Contador de palavras em um texto.
 
