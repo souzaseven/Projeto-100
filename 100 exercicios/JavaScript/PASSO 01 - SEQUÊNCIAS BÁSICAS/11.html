@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Delta</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Delta</h1>
+        <label for="valorA">Digite o valor de A:</label><br>
+        <input type="number" id="valorA" placeholder="Digite o valor de A"><br>
+        <label for="valorB">Digite o valor de B:</label><br>
+        <input type="number" id="valorB" placeholder="Digite o valor de B"><br>
+        <label for="valorC">Digite o valor de C:</label><br>
+        <input type="number" id="valorC" placeholder="Digite o valor de C"><br>
+        <button onclick="calcularDelta()">Calcular Delta</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function calcularDelta() {
+            const a = parseFloat(document.getElementById('valorA').value);
+            const b = parseFloat(document.getElementById('valorB').value);
+            const c = parseFloat(document.getElementById('valorC').value);
+
+            if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
+                const delta = (b * b) - (4 * a * c);
+                document.getElementById('resultadoMessage').textContent = 
+                    `O valor de Delta é ${delta.toFixed(2)}.`;
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, insira valores válidos para A, B e C.';
+            }
+        }
+    </script>
+</body>
+</html>
