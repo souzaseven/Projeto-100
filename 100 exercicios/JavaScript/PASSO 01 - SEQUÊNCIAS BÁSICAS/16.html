@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Redução de Vida</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Redução de Vida</h1>
+        <label for="cigarrosPorDia">Cigarros fumados por dia:</label><br>
+        <input type="number" id="cigarrosPorDia" placeholder="Cigarros por dia" min="0"><br>
+        <label for="anosFumando">Anos fumando:</label><br>
+        <input type="number" id="anosFumando" placeholder="Anos fumando" min="0"><br>
+        <button onclick="calcularReducaoVida()">Calcular Redução de Vida</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function calcularReducaoVida() {
+            const cigarrosPorDia = parseInt(document.getElementById('cigarrosPorDia').value);
+            const anosFumando = parseInt(document.getElementById('anosFumando').value);
+            const minutosPerdidosPorCigarro = 10;
+            const minutosPorDia = 1440;
+
+            if (!isNaN(cigarrosPorDia) && !isNaN(anosFumando) && cigarrosPorDia >= 0 && anosFumando >= 0) {
+                const totalCigarros = cigarrosPorDia * anosFumando * 365;
+                const totalMinutosPerdidos = totalCigarros * minutosPerdidosPorCigarro;
+                const diasPerdidos = totalMinutosPerdidos / minutosPorDia;
+
+                document.getElementById('resultadoMessage').textContent = 
+                    `O fumante perderá aproximadamente ${diasPerdidos.toFixed(2)} dias de vida.`;
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, insira valores válidos para cigarros por dia e anos fumando.';
+            }
+        }
+    </script>
+</body>
+</html>
