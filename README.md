@@ -4,9 +4,9 @@ Conversor de temperatura (Celsius para Fahrenheit e vice-versa).✅
 
 Gerador de senhas aleatórias.✅
 
-Contador de palavras em um texto.
+Contador de palavras em um texto.✅ 
 
-Gerador de números aleatórios.
+Gerador de números aleatórios.✅
 
 Verificador de número primo.
 
