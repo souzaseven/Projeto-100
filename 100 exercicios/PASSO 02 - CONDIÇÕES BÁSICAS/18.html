@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Votação</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Votação</h1>
+        <label for="anoNascimento">Ano de Nascimento:</label><br>
+        <input type="number" id="anoNascimento" placeholder="Digite o ano de nascimento" min="1900" max="2023"><br>
+        <button onclick="verificarVotacao()">Verificar</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function verificarVotacao() {
+            const anoNascimento = parseInt(document.getElementById('anoNascimento').value);
+            const anoAtual = new Date().getFullYear();
+            const idade = anoAtual - anoNascimento;
+
+            if (!isNaN(anoNascimento) && anoNascimento > 0) {
+                if (idade < 16) {
+                    document.getElementById('resultadoMessage').textContent = 
+                        `Você tem ${idade} anos e ainda não pode votar.`;
+                } else if (idade >= 16 && idade < 18 || idade >= 70) {
+                    document.getElementById('resultadoMessage').textContent = 
+                        `Você tem ${idade} anos e seu voto é opcional.`;
+                } else {
+                    document.getElementById('resultadoMessage').textContent = 
+                        `Você tem ${idade} anos e é obrigado a votar.`;
+                }
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, insira um ano de nascimento válido.';
+            }
+        }
+    </script>
+</body>
+</html>
