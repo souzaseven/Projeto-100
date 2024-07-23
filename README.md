@@ -12,7 +12,7 @@ Verificador de número primo.✅
 
 Calculadora de IMC (Índice de Massa Corporal).✅
 
-Calculadora de idade em dias.
+Calculadora de idade em dias. ✅
 
 Conversor de moeda.
 
