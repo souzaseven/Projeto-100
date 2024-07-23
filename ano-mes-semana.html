@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idade</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        input {
+            margin: 5px;
+            padding: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+        }
+
+        .result {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Estilos para balões */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background-color: #FF69B4;
+            border-radius: 50% 50% 0 0;
+            opacity: 0.8;
+            animation: rise 5s linear infinite;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 50px;
+            background-color: #FF69B4;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes rise {
+            0% { bottom: -100px; }
+            100% { bottom: 100vh; }
+        }
+
+        /* Estilos para confetes */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: gold;
+            opacity: 0.9;
+            border-radius: 50%;
+            animation: confetti 3s linear infinite;
+        }
+
+        @keyframes confetti {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(300px) rotate(180deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(600px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Idade</h2>
+    <label for="data-nascimento">Data de Nascimento:</label>
+    <input type="date" id="data-nascimento"><br>
+    <button onclick="calcularIdade()">Calcular</button>
+    <div id="resultado" class="result"></div>
+
+    <!-- Adicionando balões -->
+    <div id="balloons"></div>
+
+    <!-- Adicionando confetes -->
+    <div id="confetti"></div>
+
+    <script>
+        function calcularIdade() {
+            const dataNascimento = new Date(document.getElementById('data-nascimento').value);
+            const hoje = new Date();
+
+            if (isNaN(dataNascimento)) {
+                document.getElementById('resultado').innerText = "Por favor, insira uma data de nascimento válida.";
+                return;
+            }
+
+            const anos = hoje.getFullYear() - dataNascimento.getFullYear();
+            const meses = hoje.getMonth() - dataNascimento.getMonth();
+            const dias = hoje.getDate() - dataNascimento.getDate();
+            const semanas = Math.floor((hoje - dataNascimento) / (1000 * 60 * 60 * 24 * 7));
+
+            let idadeEmAnos = anos;
+            let idadeEmMeses = meses;
+            let idadeEmDias = dias;
+
+            if (dias < 0) {
+                idadeEmMeses--;
+                idadeEmDias += new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
+            }
+
+            if (meses < 0) {
+                idadeEmAnos--;
+                idadeEmMeses += 12;
+            }
+
+            // Calcular a quantidade de dias até o próximo aniversário
+            const proximoAniversario = new Date(hoje.getFullYear() + 1, dataNascimento.getMonth(), dataNascimento.getDate());
+            const diferencaDias = Math.ceil((proximoAniversario - hoje) / (1000 * 60 * 60 * 24));
+            
+            // Converter a diferença de dias para meses e semanas
+            const diasPorMes = 30; // Aproximação média
+            const diasPorSemana = 7;
+            const mesesEquivalentes = Math.floor(diferencaDias / diasPorMes);
+            const semanasEquivalentes = Math.floor(diferencaDias / diasPorSemana);
+
+            document.getElementById('resultado').innerText = `Você tem ${idadeEmAnos} anos, ${idadeEmMeses} meses, ${semanas} semanas e ${idadeEmDias} dias.\n` +
+                `Faltam ${diferencaDias} dias (${mesesEquivalentes} meses e ${semanasEquivalentes} semanas) para o próximo aniversário.`;
+
+
+            // Gerar confetes
+            const confettiContainer = document.getElementById('confetti');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.top = `${Math.random() * 100}vh`;
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confettiContainer.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>
