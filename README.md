@@ -14,7 +14,7 @@ Calculadora de IMC (Índice de Massa Corporal).✅
 
 Calculadora de idade em dias. ✅
 
-Conversor de moeda.
+Conversor de moeda.✅
 
 Calculadora de juros simples.
 
