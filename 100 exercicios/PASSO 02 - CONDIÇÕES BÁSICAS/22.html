@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação de Alistamento Militar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Alistamento Militar</h1>
+        <label for="anoNascimento">Ano de Nascimento:</label><br>
+        <input type="number" id="anoNascimento" placeholder="Digite seu ano de nascimento"><br>
+        <button onclick="verificarAlistamento()">Verificar</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function verificarAlistamento() {
+            const anoNascimento = parseInt(document.getElementById('anoNascimento').value);
+            const anoAtual = new Date().getFullYear();
+            const idade = anoAtual - anoNascimento;
+
+            if (!isNaN(anoNascimento) && anoNascimento > 1900 && anoNascimento <= anoAtual) {
+                let mensagem = `Você tem ${idade} anos. `;
+                if (idade < 18) {
+                    const anosRestantes = 18 - idade;
+                    mensagem += `Faltam ${anosRestantes} ano(s) para o alistamento.`;
+                } else if (idade === 18) {
+                    mensagem += `É hora de se alistar este ano.`;
+                } else {
+                    const anosPassados = idade - 18;
+                    mensagem += `Você deveria ter se alistado há ${anosPassados} ano(s).`;
+                }
+                document.getElementById('resultadoMessage').textContent = mensagem;
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, insira um ano de nascimento válido.';
+            }
+        }
+    </script>
+</body>
+</html>
