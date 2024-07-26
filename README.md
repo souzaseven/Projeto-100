@@ -16,7 +16,7 @@ Calculadora de idade em dias. ✅
 
 Conversor de moeda.✅
 
-Calculadora de juros simples.
+Calculadora de juros simples.✅
 
 Cronômetro.
 
