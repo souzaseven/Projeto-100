@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Triângulo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Triângulo</h1>
+        <label for="lado1">Lado 1:</label><br>
+        <input type="number" id="lado1" placeholder="Digite o comprimento do lado 1"><br>
+        <label for="lado2">Lado 2:</label><br>
+        <input type="number" id="lado2" placeholder="Digite o comprimento do lado 2"><br>
+        <label for="lado3">Lado 3:</label><br>
+        <input type="number" id="lado3" placeholder="Digite o comprimento do lado 3"><br>
+        <button onclick="verificarTriangulo()">Verificar Triângulo</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function verificarTriangulo() {
+            const lado1 = parseFloat(document.getElementById('lado1').value);
+            const lado2 = parseFloat(document.getElementById('lado2').value);
+            const lado3 = parseFloat(document.getElementById('lado3').value);
+
+            if (isNaN(lado1) || isNaN(lado2) || isNaN(lado3) || lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, digite valores válidos para os lados do triângulo.';
+                return;
+            }
+
+            if (lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
+                document.getElementById('resultadoMessage').textContent = 'É possível formar um triângulo com os lados informados.';
+            } else {
+                document.getElementById('resultadoMessage').textContent = 'Não é possível formar um triângulo com os lados informados.';
+            }
+        }
+    </script>
+</body>
+</html>
