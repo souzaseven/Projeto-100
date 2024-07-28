@@ -18,7 +18,7 @@ Conversor de moeda.✅
 
 Calculadora de juros simples.✅
 
-Cronômetro.
+Cronômetro ✅
 
 Calculadora de fatorial.
 
