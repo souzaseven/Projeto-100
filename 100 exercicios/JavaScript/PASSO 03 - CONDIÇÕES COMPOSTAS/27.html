@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Média</h1>
+        <label for="nota1">Nota 1:</label><br>
+        <input type="number" id="nota1" placeholder="Digite a primeira nota"><br>
+        <label for="nota2">Nota 2:</label><br>
+        <input type="number" id="nota2" placeholder="Digite a segunda nota"><br>
+        <button onclick="calcularMedia()">Calcular Média</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById('nota1').value);
+            const nota2 = parseFloat(document.getElementById('nota2').value);
+
+            if (isNaN(nota1) || isNaN(nota2)) {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, digite números válidos.';
+                return;
+            }
+
+            const media = (nota1 + nota2) / 2;
+
+            let mensagem = '';
+
+            if (media < 5.0) {
+                mensagem = `Média ${media.toFixed(1)}: REPROVADO`;
+            } else if (media >= 5.0 && media < 7.0) {
+                mensagem = `Média ${media.toFixed(1)}: RECUPERAÇÃO`;
+            } else {
+                mensagem = `Média ${media.toFixed(1)}: APROVADO`;
+            }
+
+            document.getElementById('resultadoMessage').textContent = mensagem;
+        }
+    </script>
+</body>
+</html>
