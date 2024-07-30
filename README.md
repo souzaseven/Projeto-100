@@ -24,7 +24,7 @@ Calculadora de fatorial.✅
 
 Gerador de números da sorte (loteria).✅
 
-Verificador de ano bissexto.
+Verificador de ano bissexto.✅
 
 Calculadora de média ponderada.
 
