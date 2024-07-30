@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números da Sorte</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 22px);
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Números da Sorte</h1>
+        <form id="lottery-form">
+            <label for="numCount">Quantidade de Números:</label>
+            <input type="number" id="numCount" name="numCount" min="1" max="50" value="6">
+            <label for="numRange">Faixa de Números:</label>
+            <input type="number" id="numRange" name="numRange" min="1" max="100" value="60">
+            <button type="button" onclick="generateNumbers()">Gerar Números</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+  <script>
+    function generateNumbers() {
+    const numCount = parseInt(document.getElementById('numCount').value);
+    const numRange = parseInt(document.getElementById('numRange').value);
+    
+    if (numCount < 1 || numRange < 1 || numCount > numRange) {
+        alert('Quantidade de números deve ser menor ou igual ao intervalo.');
+        return;
+    }
+    
+    let numbers = new Set();
+
+    while (numbers.size < numCount) {
+        let num = Math.floor(Math.random() * numRange) + 1;
+        numbers.add(num);
+    }
+
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Números Sorteados: ${Array.from(numbers).sort((a, b) => a - b).join(', ')}`;
+}
+
+  </script>
+</body>
+</html>
