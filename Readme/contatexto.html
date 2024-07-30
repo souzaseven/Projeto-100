@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contador de Palavras</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    textarea {
+        width: 80%;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+    .result {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h2>Contador de Palavras</h2>
+    <textarea id="texto" placeholder="Digite ou cole seu texto aqui..."></textarea>
+    <br>
+    <button onclick="contarPalavras()">Contar Palavras</button>
+
+    <div id="resultado" class="result"></div>
+
+    <script>
+        function contarPalavras() {
+            const texto = document.getElementById('texto').value.trim();
+            if (texto === '') {
+                document.getElementById('resultado').textContent = 'Número de palavras: 0';
+                return;
+            }
+            const palavras = texto.split(/\s+/);
+            const numeroDePalavras = palavras.length;
+            document.getElementById('resultado').textContent = `Número de palavras: ${numeroDePalavras}`;
+        }
+    </script>
+</body>
+</html>
