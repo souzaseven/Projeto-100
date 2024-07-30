@@ -22,7 +22,7 @@ Cronômetro ✅
 
 Calculadora de fatorial.✅
 
-Gerador de números da sorte (loteria).
+Gerador de números da sorte (loteria).✅
 
 Verificador de ano bissexto.
 
