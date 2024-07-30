@@ -20,7 +20,7 @@ Calculadora de juros simples.✅
 
 Cronômetro ✅
 
-Calculadora de fatorial.
+Calculadora de fatorial.✅
 
 Gerador de números da sorte (loteria).
 
