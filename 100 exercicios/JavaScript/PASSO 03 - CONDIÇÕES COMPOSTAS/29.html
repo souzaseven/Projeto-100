@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salarial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reajuste Salarial</h1>
+        <label for="nome">Nome do Funcionário:</label><br>
+        <input type="text" id="nome" placeholder="Digite o nome"><br>
+        <label for="salario">Salário Atual (R$):</label><br>
+        <input type="number" id="salario" placeholder="Digite o salário"><br>
+        <label for="anos">Anos na Empresa:</label><br>
+        <input type="number" id="anos" placeholder="Digite os anos"><br>
+        <button onclick="calcularReajuste()">Calcular Reajuste</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function calcularReajuste() {
+            const nome = document.getElementById('nome').value;
+            const salario = parseFloat(document.getElementById('salario').value);
+            const anos = parseInt(document.getElementById('anos').value);
+
+            if (!nome || isNaN(salario) || isNaN(anos)) {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, preencha todos os campos corretamente.';
+                return;
+            }
+
+            let percentualReajuste = 0;
+
+            if (anos < 3) {
+                percentualReajuste = 3;
+            } else if (anos >= 3 && anos < 10) {
+                percentualReajuste = 12.5;
+            } else {
+                percentualReajuste = 20;
+            }
+
+            const novoSalario = salario + (salario * percentualReajuste / 100);
+
+            document.getElementById('resultadoMessage').innerHTML = `O funcionário ${nome} tem um novo salário de R$${novoSalario.toFixed(2)} com um reajuste de ${percentualReajuste}%.`;
+        }
+    </script>
+</body>
+</html>
