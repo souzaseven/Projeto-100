@@ -26,7 +26,7 @@ Gerador de números da sorte (loteria).✅
 
 Verificador de ano bissexto.✅
 
-Calculadora de média ponderada.
+Calculadora de média ponderada.✅ 
 
 Calculadora de potência.
 
