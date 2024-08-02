@@ -28,7 +28,7 @@ Verificador de ano bissexto.✅
 
 Calculadora de média ponderada.✅ 
 
-Calculadora de potência.
+Calculadora de potência.✅
 
 Gerador de QR Code.
 
