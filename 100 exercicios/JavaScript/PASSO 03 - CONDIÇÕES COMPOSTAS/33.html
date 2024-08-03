@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprovação de Empréstimo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aprovação de Empréstimo</h1>
+        <input type="number" id="valorCasa" placeholder="Valor da Casa (R$)" min="0">
+        <input type="number" id="salario" placeholder="Salário do Comprador (R$)" min="0">
+        <input type="number" id="anos" placeholder="Anos para Pagar" min="1">
+        <button onclick="aprovarEmprestimo()">Calcular</button>
+        <div class="message" id="resultadoMessage"></div>
+    </div>
+
+    <script>
+        function aprovarEmprestimo() {
+            const valorCasa = parseFloat(document.getElementById('valorCasa').value);
+            const salario = parseFloat(document.getElementById('salario').value);
+            const anos = parseInt(document.getElementById('anos').value);
+
+            if (isNaN(valorCasa) || isNaN(salario) || isNaN(anos)) {
+                document.getElementById('resultadoMessage').textContent = 'Por favor, preencha todos os campos corretamente.';
+                return;
+            }
+
+            const prestacaoMensal = valorCasa / (anos * 12);
+            const limite = salario * 0.3;
+
+            if (prestacaoMensal > limite) {
+                document.getElementById('resultadoMessage').textContent = `Empréstimo negado. A prestação mensal de R$${prestacaoMensal.toFixed(2)} excede 30% do seu salário (R$${limite.toFixed(2)}).`;
+            } else {
+                document.getElementById('resultadoMessage').textContent = `Empréstimo aprovado! A prestação mensal será de R$${prestacaoMensal.toFixed(2)}.`;
+            }
+        }
+    </script>
+</body>
+</html>
