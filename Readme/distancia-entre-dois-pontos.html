@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Distância</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f06, #007ced);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+        .distance-calculator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .distance-calculator h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .distance-calculator input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .distance-calculator button {
+            padding: 10px 20px;
+            background-color: #007ced;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .distance-calculator button:hover {
+            background-color: #005bb5;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="distance-calculator">
+        <h2>Calculadora de Distância</h2>
+        <input type="text" id="lat1" placeholder="Latitude do ponto 1" required>
+        <input type="text" id="lon1" placeholder="Longitude do ponto 1" required>
+        <input type="text" id="lat2" placeholder="Latitude do ponto 2" required>
+        <input type="text" id="lon2" placeholder="Longitude do ponto 2" required>
+        <button onclick="calculateDistance()">Calcular Distância</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateDistance() {
+            const lat1 = parseFloat(document.getElementById('lat1').value);
+            const lon1 = parseFloat(document.getElementById('lon1').value);
+            const lat2 = parseFloat(document.getElementById('lat2').value);
+            const lon2 = parseFloat(document.getElementById('lon2').value);
+
+            if (isNaN(lat1) || isNaN(lon1) || isNaN(lat2) || isNaN(lon2)) {
+                alert("Por favor, insira coordenadas válidas.");
+                return;
+            }
+
+            const R = 6371; // Raio da Terra em km
+            const dLat = toRad(lat2 - lat1);
+            const dLon = toRad(lon2 - lon1);
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const distance = R * c;
+
+            document.getElementById('result').innerText = `Distância: ${distance.toFixed(2)} km`;
+        }
+
+        function toRad(Value) {
+            return Value * Math.PI / 180;
+        }
+    </script>
+</body>
+</html>
