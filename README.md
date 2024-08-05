@@ -32,7 +32,7 @@ Calculadora de potência.✅
 
 Gerador de QR Code.
 
-Calculadora de distância entre dois pontos (coordenadas).
+Calculadora de distância entre dois pontos (coordenadas).✅
 
 Gerador de cartões de visita.
 
