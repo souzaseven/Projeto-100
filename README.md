@@ -30,7 +30,7 @@ Calculadora de média ponderada.✅
 
 Calculadora de potência.✅
 
-Gerador de QR Code.
+Gerador de QR Code.✅
 
 Calculadora de distância entre dois pontos (coordenadas).✅
 
