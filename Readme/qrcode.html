@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+         body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(140deg, #009b3a 25%, #ffdf00 25%, #ffdf00 50%, #002776 50%, #002776 75%, #ffffff 75%);
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .qr-generator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        .qr-generator h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .qr-generator select,
+        .qr-generator input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .qr-generator button {
+            padding: 10px 20px;
+            background-color: #007ced;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .qr-generator button:hover {
+            background-color: #005bb5;
+        }
+        .qr-code {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .example-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .example-button i {
+            margin-right: 8px;
+        }
+        .example-button:hover {
+            background-color: #1DA851;
+        }
+        .example-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            text-align: left;
+            display: none;
+        }
+        .example-text strong {
+            color: #333;
+        }
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .action-buttons button {
+            padding: 10px 15px;
+            background-color: #007ced;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .action-buttons button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="qr-generator">
+        <h2>Gerador de QR Code</h2>
+        <select id="qrType" onchange="toggleInputFields()">
+            <option value="text">Texto/URL</option>
+            <option value="pix">Pix</option>
+        </select>
+        <input type="text" id="textInput" placeholder="Digite o texto ou URL">
+        <input type="text" id="pixKey" placeholder="Digite a chave Pix" style="display:none;">
+        <button onclick="generateQRCode()">Gerar QR Code</button>
+        <div class="qr-code" id="qrcode"></div>
+        <div class="action-buttons">
+            <button onclick="copyText()">
+                <i class="fas fa-copy"></i> Copiar Texto
+            </button>
+            <button onclick="copyQRCode()">
+                <i class="fas fa-copy"></i> Copiar QR Code
+            </button>
+            <button onclick="shareQRCode()">
+                <i class="fas fa-share"></i> Compartilhar
+            </button>
+        </div>
+        <button class="example-button" onclick="toggleExampleText()">
+            <i class="fab fa-whatsapp"></i>Exemplos
+        </button>
+        <div class="example-text" id="exampleText">
+            <p>Por exemplo, se você estiver criando um link clique para conversar para um número de telefone nos Estados Unidos, o link ficaria assim:
+                <br><strong>https://wa.me/14155555555</strong></p>
+            <p>https://wa.me/?text=\mensagem pré-preenchida
+                <br>Por exemplo, você deseja adicionar um modelo de mensagem ‘Olá’. Vamos usar um número de telefone, pois os dois acima simplificam. Então seu link será:
+                <br><strong>https://wa.me/14155555555?text=Olá</strong></p>
+            <p>Se o seu modelo de mensagem contiver várias palavras, use ‘+’ para dividi-las. Por exemplo:
+                <br><strong>https://wa.me/14155555555?text=Olá,+estou+interessado+em+aprender+mais+sobre+seu+negócio.</strong></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    <script>
+        function toggleInputFields() {
+            const qrType = document.getElementById('qrType').value;
+            const textInput = document.getElementById('textInput');
+            const pixKey = document.getElementById('pixKey');
+            if (qrType === 'pix') {
+                textInput.style.display = 'none';
+                pixKey.style.display = 'block';
+            } else {
+                textInput.style.display = 'block';
+                pixKey.style.display = 'none';
+            }
+        }
+
+        function generateQRCode() {
+            const qrType = document.getElementById('qrType').value;
+            const qrcodeContainer = document.getElementById('qrcode');
+            qrcodeContainer.innerHTML = "";
+
+            if (qrType === 'pix') {
+                const pixKey = document.getElementById('pixKey').value;
+                // Exemplo simplificado: criar um QR Code Pix para pagamento
+                const pixQRCode = `00020126360014BR.GOV.BCB.PIX0114${pixKey}5204000053039865802BR5913NOME RECEBEDOR6014NOME DO RECEBEDOR62160513${pixKey}6304`;
+                new QRCode(qrcodeContainer, {
+                    text: pixQRCode,
+                    width: 128,
+                    height: 128
+                });
+            } else {
+                const text = document.getElementById('textInput').value;
+                new QRCode(qrcodeContainer, {
+                    text: text,
+                    width: 128,
+                    height: 128
+                });
+            }
+        }
+
+        function toggleExampleText() {
+            const exampleText = document.getElementById('exampleText');
+            exampleText.style.display = exampleText.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function copyText() {
+            const qrType = document.getElementById('qrType').value;
+            const text = qrType === 'pix' ? document.getElementById('pixKey').value : document.getElementById('textInput').value;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Texto copiado para a área de transferência!");
+            }).catch(err => {
+                alert("Erro ao copiar texto: " + err);
+            });
+        }
+
+        function copyQRCode() {
+            const qrcodeContainer = document.getElementById('qrcode');
+            html2canvas(qrcodeContainer).then(canvas => {
+                canvas.toBlob(blob => {
+                    const clipboardItem = new ClipboardItem({ 'image/png': blob });
+                    navigator.clipboard.write([clipboardItem]).then(() => {
+                        alert("QR Code copiado para a área de transferência!");
+                    }).catch(err => {
+                        alert("Erro ao copiar QR Code: " + err);
+                    });
+                });
+            });
+        }
+
+        function shareQRCode() {
+            const qrcodeContainer = document.getElementById('qrcode');
+            html2canvas(qrcodeContainer).then(canvas => {
+                canvas.toBlob(blob => {
+                    const file = new File([blob], 'qrcode.png', { type: 'image/png' });
+                    const filesArray = [file];
+                    const text = document.getElementById('qrType').value === 'pix' ? document.getElementById('pixKey').value : document.getElementById('textInput').value;
+
+                    if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+                        navigator.share({
+                            files: filesArray,
+                            title: 'Meu QR Code',
+                            text: text
+                        }).then(() => {
+                            alert("QR Code compartilhado com sucesso!");
+                        }).catch(err => {
+                            alert("Erro ao compartilhar QR Code: " + err);
+                        });
+                    } else {
+                        alert("Seu navegador não suporta a API de compartilhamento.");
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
