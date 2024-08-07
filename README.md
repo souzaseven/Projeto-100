@@ -40,7 +40,7 @@ Jogo da forca.
 
 Gerador de memes.✅
 
-Calculadora de desconto.
+Calculadora de desconto.✅
 
 Jogo da velha (tic-tac-toe).
 
