@@ -38,7 +38,7 @@ Gerador de cartões de visita.
 
 Jogo da forca.
 
-Gerador de memes.
+Gerador de memes.✅
 
 Calculadora de desconto.
 
