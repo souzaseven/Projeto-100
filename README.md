@@ -34,7 +34,7 @@ Gerador de QR Code.✅
 
 Calculadora de distância entre dois pontos (coordenadas).✅
 
-Gerador de cartões de visita.
+Gerador de cartões de visita.✅
 
 Jogo da forca.
 
