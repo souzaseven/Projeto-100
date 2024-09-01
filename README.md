@@ -42,7 +42,7 @@ Gerador de memes.✅
 
 Calculadora de desconto.✅
 
-Jogo da velha (tic-tac-toe).
+Jogo da velha (tic-tac-toe).✅
 
 Conversor de unidades (ex: metros para quilômetros).
 
