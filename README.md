@@ -52,7 +52,7 @@ Contador de caracteres em uma string.
 
 Gerador de código de barras.
 
-Lista de tarefas (To-Do List).
+Lista de tarefas (To-Do List).✅
 
 Calculadora de média aritmética.
 
