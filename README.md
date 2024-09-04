@@ -78,7 +78,7 @@ Gerador de calendário.
 
 Jogo de adivinhação.
 
-Conversor de numeral romano para decimal.
+Conversor de numeral romano para decimal.✅
 
 Calculadora de horas trabalhadas.
 
