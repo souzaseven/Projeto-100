@@ -188,7 +188,7 @@ Gerador de horários de estudo.
 
 Calculadora de margem de lucro.
 
-Conversor de texto para emoji.
+Conversor de texto para emoji.✅
 
 Calculadora de massa molecular.
 
