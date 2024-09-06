@@ -146,7 +146,7 @@ Calculadora de raiz cúbica.
 
 Gerador de exercícios de matemática para crianças.
 
-Conversor de texto para código ASCII.
+Conversor de texto para código ASCII.✅
 
 Calculadora de densidade demográfica.
 
