@@ -1,48 +1,5 @@
-Calculadora simples (adição, subtração, multiplicação, divisão).✅
-
-Conversor de temperatura (Celsius para Fahrenheit e vice-versa).✅
-
-Gerador de senhas aleatórias.✅
-
-Contador de palavras em um texto.✅ 
-
-Gerador de números aleatórios.✅
-
-Verificador de número primo.✅
-
-Calculadora de IMC (Índice de Massa Corporal).✅
-
-Calculadora de idade em dias. ✅
-
-Conversor de moeda.✅
-
-Calculadora de juros simples.✅
-
-Cronômetro ✅
-
-Calculadora de fatorial.✅
-
-Gerador de números da sorte (loteria).✅
-
-Verificador de ano bissexto.✅
-
-Calculadora de média ponderada.✅ 
-
-Calculadora de potência.✅
-
-Gerador de QR Code.✅
-
-Calculadora de distância entre dois pontos (coordenadas).✅
-
-Gerador de cartões de visita.✅
 
 Jogo da forca.
-
-Gerador de memes.✅
-
-Calculadora de desconto.✅
-
-Jogo da velha (tic-tac-toe).✅
 
 Conversor de unidades (ex: metros para quilômetros).
 
@@ -51,8 +8,6 @@ Gerador de gráficos de barra.
 Contador de caracteres em uma string.
 
 Gerador de código de barras.
-
-Lista de tarefas (To-Do List).✅
 
 Calculadora de média aritmética.
 
@@ -77,8 +32,6 @@ Conversor de unidades de tempo.
 Gerador de calendário.
 
 Jogo de adivinhação.
-
-Conversor de numeral romano para decimal.✅
 
 Calculadora de horas trabalhadas.
 
@@ -146,8 +99,6 @@ Calculadora de raiz cúbica.
 
 Gerador de exercícios de matemática para crianças.
 
-Conversor de texto para código ASCII.✅
-
 Calculadora de densidade demográfica.
 
 Gerador de nomes de empresas.
@@ -188,8 +139,6 @@ Gerador de horários de estudo.
 
 Calculadora de margem de lucro.
 
-Conversor de texto para emoji.✅
-
 Calculadora de massa molecular.
 
 Gerador de cartas de apresentação para emprego.
@@ -197,3 +146,56 @@ Gerador de cartas de apresentação para emprego.
 Calculadora de taxa de crescimento econômico.
 
 Gerador de desafios de matemática.
+
+
+Calculadora simples (adição, subtração, multiplicação, divisão).✅
+
+Conversor de temperatura (Celsius para Fahrenheit e vice-versa).✅
+
+Gerador de senhas aleatórias.✅
+
+Contador de palavras em um texto.✅ 
+
+Gerador de números aleatórios.✅
+
+Verificador de número primo.✅
+
+Calculadora de IMC (Índice de Massa Corporal).✅
+
+Calculadora de idade em dias. ✅
+
+Conversor de moeda.✅
+
+Calculadora de juros simples.✅
+
+Cronômetro ✅
+
+Calculadora de fatorial.✅
+
+Gerador de números da sorte (loteria).✅
+
+Verificador de ano bissexto.✅
+
+Calculadora de média ponderada.✅ 
+
+Calculadora de potência.✅
+
+Gerador de QR Code.✅
+
+Calculadora de distância entre dois pontos (coordenadas).✅
+
+Gerador de cartões de visita.✅
+
+Gerador de memes.✅
+
+Calculadora de desconto.✅
+
+Jogo da velha (tic-tac-toe).✅
+
+Lista de tarefas (To-Do List).✅
+
+Conversor de numeral romano para decimal.✅
+
+Conversor de texto para código ASCII.✅
+
+Conversor de texto para emoji.✅
