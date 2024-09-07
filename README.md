@@ -69,8 +69,6 @@ Gerador de lista de reprodução de música.
 
 Calculadora de idade gestacional.
 
-Conversor de texto para áudio.
-
 Gerador de e-mails aleatórios.
 
 Calculadora de distância percorrida.
@@ -127,7 +125,7 @@ Gerador de listas de exercícios de academia.
 
 Calculadora de volume de sólidos irregulares.
 
-Conversor de texto para código Morse.
+
 
 Gerador de citações de livros.
 
@@ -199,3 +197,7 @@ Conversor de numeral romano para decimal.✅
 Conversor de texto para código ASCII.✅
 
 Conversor de texto para emoji.✅
+
+Conversor de texto para código Morse.✅
+
+Conversor de texto para áudio.✅
