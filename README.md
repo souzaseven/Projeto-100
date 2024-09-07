@@ -55,8 +55,6 @@ Gerador de nome de usuário.
 
 Calculadora de área de terreno.
 
-Conversor de código Morse.
-
 Calculadora de média harmônica.
 
 Gerador de curiosidades aleatórias.
@@ -201,3 +199,5 @@ Conversor de texto para emoji.✅
 Conversor de texto para código Morse.✅
 
 Conversor de texto para áudio.✅
+
+Conversor de código Morse.✅
