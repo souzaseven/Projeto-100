@@ -33,8 +33,6 @@ Gerador de calendário.
 
 Jogo de adivinhação.
 
-Calculadora de horas trabalhadas.
-
 Gerador de tabelas de multiplicação.
 
 Calculadora de idade do cachorro (em anos humanos).
@@ -199,5 +197,7 @@ Conversor de texto para código Morse.✅
 Conversor de texto para áudio.✅
 
 Conversor de código Morse.✅
+
+Calculadora de horas trabalhadas.✅
 
 Verificador de horóscopo.✅
