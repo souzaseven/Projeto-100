@@ -87,8 +87,6 @@ Gerador de mensagens de boas-vindas para sites.
 
 Calculadora de área de círculo.
 
-Verificador de horóscopo.
-
 Gerador de nomes de bandas.
 
 Calculadora de raiz cúbica.
@@ -201,3 +199,5 @@ Conversor de texto para código Morse.✅
 Conversor de texto para áudio.✅
 
 Conversor de código Morse.✅
+
+Verificador de horóscopo.✅
