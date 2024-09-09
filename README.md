@@ -35,8 +35,6 @@ Jogo de adivinhação.
 
 Gerador de tabelas de multiplicação.
 
-Calculadora de idade do cachorro (em anos humanos).
-
 Jogo da memória.
 
 Gerador de código HTML para tabelas.
@@ -195,6 +193,8 @@ Conversor de texto para emoji.✅
 Conversor de texto para código Morse.✅
 
 Conversor de texto para áudio.✅
+
+Calculadora de idade do cachorro (em anos humanos).✅
 
 Conversor de código Morse.✅
 
