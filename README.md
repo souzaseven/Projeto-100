@@ -33,8 +33,6 @@ Gerador de calendário.
 
 Jogo de adivinhação.
 
-Gerador de tabelas de multiplicação.
-
 Jogo da memória.
 
 Gerador de código HTML para tabelas.
@@ -117,8 +115,6 @@ Gerador de listas de exercícios de academia.
 
 Calculadora de volume de sólidos irregulares.
 
-
-
 Gerador de citações de livros.
 
 Calculadora de área de superfície.
@@ -136,6 +132,7 @@ Gerador de cartas de apresentação para emprego.
 Calculadora de taxa de crescimento econômico.
 
 Gerador de desafios de matemática.
+
 
 
 Calculadora simples (adição, subtração, multiplicação, divisão).✅
@@ -201,3 +198,5 @@ Conversor de código Morse.✅
 Calculadora de horas trabalhadas.✅
 
 Verificador de horóscopo.✅
+
+Gerador de tabelas de multiplicação.✅
