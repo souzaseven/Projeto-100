@@ -5,7 +5,7 @@ Conversor de unidades (ex: metros para quilômetros).
 
 Gerador de gráficos de barra.
 
-Contador de caracteres em uma string.
+Contador de caracteres em uma string.✅
 
 Gerador de código de barras.
 
