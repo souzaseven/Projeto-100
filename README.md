@@ -69,8 +69,6 @@ Gerador de receitas culinárias aleatórias.
 
 Calculadora de tempo de espera em filas.
 
-Gerador de listas de compras.
-
 Jogo de blackjack (21).
 
 Calculadora de resistência elétrica.
@@ -200,3 +198,5 @@ Verificador de horóscopo.✅
 Gerador de tabelas de multiplicação.✅
 
 Contador de caracteres em uma string.✅
+
+Gerador de listas de compras.✅
